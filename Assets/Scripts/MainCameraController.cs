@@ -5,20 +5,20 @@ using UnityEngine;
 public class MainCameraController : MonoBehaviour {
 
 	// プレイヤーを入れる
-	private GameObject player;
+	public GameObject player;
 
-	private Vector3 distance = new Vector3(0, 2, -4);
+	// プレイヤーとカメラ間のオフセット
+	private float distance;
 
-	private Vector3 lookPoint = new Vector3(0, 1.35f, 0);
-
+	// Use this for initialization
 	void Start () {
 		this.player = GameObject.FindWithTag ("Player");
+		this.distance = player.transform.position.z - this.transform.position.z;
 	}
-
+	
+	// Update is called once per frame
 	void Update () {
-		this.transform.position = this.player.transform.position + distance;
-
-		Vector3 lookVector = this.player.transform.position + lookPoint - this.transform.position;
-		this.transform.rotation = Quaternion.LookRotation(lookVector);
+		this.transform.position = new Vector3 (this.player.transform.position.x, this.transform.position.y, this.player.transform.position.z - distance);
+		this.transform.rotation = Quaternion.Euler (0, this.player.transform.localEulerAngles.y, 0);
 	}
 }

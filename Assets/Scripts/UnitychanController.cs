@@ -15,7 +15,7 @@ public class UnitychanController : MonoBehaviour {
 	}
 
 	// ジェムと接触した時の処理
-	void OnTriggerEnter(Collider other) {
+	void OnCollisionEnter(Collision other) {
 		if(other.gameObject.tag == "GemTag") {
 			Destroy (other.gameObject);
 		}
