@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class ReLoad : MonoBehaviour {
+public class StartGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,8 @@ public class ReLoad : MonoBehaviour {
 	void Update () {
 		
 	}
-	public void SceneLoad() {
-		SceneManager.LoadScene ("TitleScene");
+
+	public void GameSceneLoad() {
+		SceneManager.LoadScene ("GameScene");
 	}
 }
