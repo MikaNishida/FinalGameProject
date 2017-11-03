@@ -16,7 +16,7 @@ public class ItemGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//アイテムをランダムにいくつ生成するか
-		int count = Random.Range(10, 13);
+		int count = Random.Range(2, 6);
 
 		if (ItemList.Length != 0) {
 			for (int i = 0; i < count; i++) {
@@ -25,8 +25,8 @@ public class ItemGenerator : MonoBehaviour {
 				int number = Random.Range (0, ItemList.Length);
 
 				//アイテムを生成する場所を決める
-				float itemPosX = Random.Range (-10f, 10f);
-				float itemPosZ = Random.Range (-10f, 10f);
+				float itemPosX = Random.Range (-9f, 9f);
+				float itemPosZ = Random.Range (-9f, 9f);
 				Vector3 ItemPos = new Vector3 (itemPosX, transform.position.y, itemPosZ);
 
 				//アイテム生成
@@ -35,21 +35,20 @@ public class ItemGenerator : MonoBehaviour {
 		}
 
 		// ジェムを生成
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < 4; i++) {
 
 			//ジェムを生成する場所を決める
-			float gemPosX = Random.Range (-10f, 10f);
-			float gemPosY = Random.Range (1f, 3f);
-			float gemPosZ = Random.Range (-10f, 10f);
+			float gemPosX = Random.Range (-9f, 9f);
+			float gemPosY = Random.Range (0.1f, 1f);
+			float gemPosZ = Random.Range (-9f, 9f);
 
 			GameObject gem = Instantiate(GemPrefab) as GameObject;
 			gem.transform.position = new Vector3 (gemPosX, gemPosY, gemPosZ);
 		}
 
 		// Rocketとbomzoneを生成
-		float rocketPosX = Random.Range (-10f, 10f);
-		float rocketPosY = Random.Range (10f, 20f);
-		float rocketPosZ = Random.Range (-10f, 10f);
+		float rocketPosX = Random.Range (-9f, 9f);
+		float rocketPosZ = Random.Range (-9f, 9f);
 
 		GameObject rocket = Instantiate (RocketPrefab) as GameObject;
 		rocket.transform.position = new Vector3 (rocketPosX, rocketPosZ, rocketPosZ);
@@ -62,4 +61,6 @@ public class ItemGenerator : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }

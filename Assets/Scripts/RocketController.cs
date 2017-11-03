@@ -12,11 +12,11 @@ public class RocketController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 pos = transform.position;
-		pos.y -= 2f;
+		pos.y -= 0.2f;
 		if(pos.y  <= 0.07f) {
-			pos.y = Random.Range(50f, 150f);
-			pos.x = Random.Range (-470f, 470f);
-			pos.z = Random.Range (-470f, 470f);
+			pos.y = Random.Range(10f, 15f);
+			pos.x = Random.Range (-13f, 13f);
+			pos.z = Random.Range (-13f, 13f);
 		}
 		transform.position = pos;
 	}
