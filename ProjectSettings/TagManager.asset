@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GemTag
   - RocketTag
+  - ItemTag
   layers:
   - Default
   - TransparentFX
