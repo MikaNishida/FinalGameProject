@@ -14,8 +14,6 @@ public class GEController : MonoBehaviour {
 	// joystick
 	GameObject mobileController;
 
-	private bool isGameOver = false;
-
 	// Use this for initialization
 	void Start () {
 		reStartButton = GameObject.Find ("reStartButton");
@@ -31,7 +29,6 @@ public class GEController : MonoBehaviour {
 		// ゲームクリアの場合
 		if (count == 0 && counter <= 60) {
 			this.GetComponent<Text> ().text = "Clear!";
-			isGameOver = true;
 			reStartButton.SetActive (true); 
 			mobileController.SetActive (false);
 
@@ -40,7 +37,6 @@ public class GEController : MonoBehaviour {
 		// ゲームオーバーの場合
 		if(count > 0 && counter > 60) {
 			this.GetComponent<Text> ().text = "Game Over!";
-			isGameOver = true;
 			reStartButton.SetActive (true);
 			mobileController.SetActive (false);
 		}

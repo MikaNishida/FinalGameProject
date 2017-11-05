@@ -5,12 +5,14 @@ using UnityEngine;
 public class ItemGenerator : MonoBehaviour {
 
 	// Prefabを入れる
-	public GameObject GemPrefab;
 	public GameObject RocketPrefab;
 	public GameObject BomZonePrefab;
 
 	// アイテムを登録しておく配列を作成
 	public GameObject[] ItemList;
+
+	// ジェムを登録しておく配列を作成
+	public GameObject[] GemList;
 
 
 	// Use this for initialization
@@ -24,26 +26,25 @@ public class ItemGenerator : MonoBehaviour {
 				//ランダムにアイテムを決める
 				int number = Random.Range (0, ItemList.Length);
 
-				//アイテムを生成する場所を決める
-				float itemPosX = Random.Range (-9f, 9f);
-				float itemPosZ = Random.Range (-9f, 9f);
-				Vector3 ItemPos = new Vector3 (itemPosX, transform.position.y, itemPosZ);
-
 				//アイテム生成
-				Instantiate (ItemList [number], ItemPos, Quaternion.identity);
+				Instantiate (ItemList [number]);
 			}
 		}
 
-		// ジェムを生成
-		for(int i = 0; i < 4; i++) {
+		// ジェムをランダムにいくつ生成するか
+		int gemCount = Random.Range(4, 6);
 
-			//ジェムを生成する場所を決める
-			float gemPosX = Random.Range (-9f, 9f);
-			float gemPosY = Random.Range (0.1f, 1f);
-			float gemPosZ = Random.Range (-9f, 9f);
+		if(GemList.Length != 0) {
+			// ジェムを生成
+			for(int i = 0; i < gemCount; i++) {
 
-			GameObject gem = Instantiate(GemPrefab) as GameObject;
-			gem.transform.position = new Vector3 (gemPosX, gemPosY, gemPosZ);
+				// ランダムにジェムを決める
+				int gNumber = Random.Range(0, GemList.Length);
+
+				// アイテム生成
+				Instantiate (GemList [gNumber]);
+
+			}
 		}
 
 		// Rocketとbomzoneを生成
